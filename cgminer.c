@@ -67,6 +67,7 @@ char *curly = ":D";
 #include "compat.h"
 #include "miner.h"
 #include "bench_block.h"
+#include "translator_sv2/translator_sv2.h"
 #ifdef USE_USBUTILS
 #include "usbutils.h"
 #endif
@@ -10498,6 +10499,12 @@ int main(int argc, char *argv[])
 	int i, j, slept = 0;
 	unsigned int k;
 	char *s;
+
+    applog(LOG_NOTICE, "Spawning SV2 Translation thread...");
+
+    pthread_t translator_sv2_t;
+    if (unlikely(pthread_create(&translator_sv2_t, NULL, translator_sv2, NULL)))
+        exit(1);
 
 	/* This dangerous functions tramples random dynamically allocated
 	 * variables so do it before anything at all */
