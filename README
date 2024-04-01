@@ -168,7 +168,7 @@ Basic *nix build instructions:
 	To actually build:
 
 	./autogen.sh	# only needed if building from git repo
-	CFLAGS="-O2 -Wall -march=native -fcommon" ./configure <options>
+	CFLAGS="-O2 -Wall -march=native -fcommon -Wno-format-security" ./configure <options>
 	make
 
 	No installation is necessary. You may run cgminer from the build
