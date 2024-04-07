@@ -33,7 +33,7 @@ cgminer_LDADD	= $(DLOPEN_FLAGS) @LIBCURL_LIBS@ @JANSSON_LIBS@ @LIBZ_LIBS@ @PTHRE
 		  @NCURSES_LIBS@ @PDCURSES_LIBS@ @WS2_LIBS@ \
 		  @LIBUSB_LIBS@ @MM_LIBS@ @RT_LIBS@ @LIBSYSTEMD_LIBS@ \
 		  @MATH_LIBS@ lib/libgnu.a ccan/libccan.a \
-		  translator_sv2/target/release/libtranslator_sv2.a
+		  $(top_srcdir)/translator_sv2/target/release/libtranslator_sv2.a
 
 cgminer_CPPFLAGS += -I$(top_builddir)/lib -I$(top_srcdir)/lib
 

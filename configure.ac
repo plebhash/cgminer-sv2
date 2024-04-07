@@ -135,17 +135,17 @@ if test "x$CARGO" = "xno"; then
     AC_MSG_ERROR([cargo is required to build libtranslator_sv2.])
 else
     echo "Building Rust libtranslator_sv2 library..."
-    (cd translator_sv2 && cargo build --release)
-    if test ! -f "translator_sv2/target/release/libtranslator_sv2.a"; then
+    (cd "${srcdir}/translator_sv2" && cargo build --release)
+    if test ! -f "${srcdir}/translator_sv2/target/release/libtranslator_sv2.a"; then
         AC_MSG_ERROR([Could not build libtranslator_sv2.a])
     fi
 fi
 
-AC_CHECK_FILE([translator_sv2/target/release/libtranslator_sv2.a],
+AC_CHECK_FILE([${srcdir}/translator_sv2/target/release/libtranslator_sv2.a],
               [],
               [AC_MSG_ERROR([Could not find libtranslator_sv2.a])])
 
-AC_CHECK_HEADERS([translator_sv2/translator_sv2.h])
+AC_CHECK_HEADERS([${srcdir}/translator_sv2/translator_sv2.h])
 
 # Drivers that are designed to be run on dedicated hardware should set standalone to yes
 # All drivers should prepend an x to the drivercount
